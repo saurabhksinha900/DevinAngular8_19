@@ -43,4 +43,15 @@ describe('ApiService', () => {
     req.flush('Internal Server Error', { status: 500, statusText: 'Server Error' });
     expect(errorResponse.status).toBe(500);
   });
+
+  it('should handle HTTP 404 not-found gracefully (edge test – hop v12→v13)', () => {
+    let errorResponse: any;
+    service.get('missing-resource').subscribe(
+      () => fail('expected a 404 error, not data'),
+      (error: any) => { errorResponse = error; }
+    );
+    const req = httpMock.expectOne('/api/missing-resource');
+    req.flush('Not Found', { status: 404, statusText: 'Not Found' });
+    expect(errorResponse.status).toBe(404);
+  });
 });
