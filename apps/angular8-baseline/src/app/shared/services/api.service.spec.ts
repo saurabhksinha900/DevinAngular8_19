@@ -32,4 +32,37 @@ describe('ApiService', () => {
     expect(req.request.method).toBe('GET');
     req.flush(mockData);
   });
+
+  it('should propagate HTTP 500 error to subscriber (edge test – hop v9→v10)', () => {
+    let errorResponse: any;
+    service.get('fail-endpoint').subscribe(
+      () => fail('expected an error, not data'),
+      (error: any) => { errorResponse = error; }
+    );
+    const req = httpMock.expectOne('/api/fail-endpoint');
+    req.flush('Internal Server Error', { status: 500, statusText: 'Server Error' });
+    expect(errorResponse.status).toBe(500);
+  });
+
+  it('should handle HTTP 404 not-found gracefully (edge test – hop v12→v13)', () => {
+    let errorResponse: any;
+    service.get('missing-resource').subscribe(
+      () => fail('expected a 404 error, not data'),
+      (error: any) => { errorResponse = error; }
+    );
+    const req = httpMock.expectOne('/api/missing-resource');
+    req.flush('Not Found', { status: 404, statusText: 'Not Found' });
+    expect(errorResponse.status).toBe(404);
+  });
+
+  it('should handle HTTP 429 rate-limit response (edge test – hop v14→v15)', () => {
+    let errorResponse: any;
+    service.get('rate-limited').subscribe(
+      () => fail('expected a 429 error, not data'),
+      (error: any) => { errorResponse = error; }
+    );
+    const req = httpMock.expectOne('/api/rate-limited');
+    req.flush('Too Many Requests', { status: 429, statusText: 'Too Many Requests' });
+    expect(errorResponse.status).toBe(429);
+  });
 });

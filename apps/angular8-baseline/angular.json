@@ -43,7 +43,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -95,7 +94,10 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "include": [
+              "src/**/*.spec.ts"
+            ]
           }
         },
         "lint": {
@@ -124,6 +126,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular8-baseline"
+    }
+  },
+  "defaultProject": "angular8-baseline",
+  "cli": {
+    "analytics": false
+  }
 }
