@@ -124,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular8-baseline"
+    }
+  },
+  "defaultProject": "angular8-baseline",
+  "cli": {
+    "analytics": false
+  }
 }
