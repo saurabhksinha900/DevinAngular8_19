@@ -54,4 +54,15 @@ describe('ApiService', () => {
     req.flush('Not Found', { status: 404, statusText: 'Not Found' });
     expect(errorResponse.status).toBe(404);
   });
+
+  it('should handle HTTP 429 rate-limit response (edge test – hop v14→v15)', () => {
+    let errorResponse: any;
+    service.get('rate-limited').subscribe(
+      () => fail('expected a 429 error, not data'),
+      (error: any) => { errorResponse = error; }
+    );
+    const req = httpMock.expectOne('/api/rate-limited');
+    req.flush('Too Many Requests', { status: 429, statusText: 'Too Many Requests' });
+    expect(errorResponse.status).toBe(429);
+  });
 });
