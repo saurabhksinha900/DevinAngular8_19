@@ -63,4 +63,13 @@ describe('AppComponent', () => {
     const navLinks = compiled.querySelectorAll('.app-nav a');
     expect(navLinks.length).toBeGreaterThan(0);
   });
+
+  it('should have app-header element present after rendering (edge test – hop v18→v19)', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    const header = compiled.querySelector('.app-header');
+    expect(header).toBeTruthy();
+    expect(header.textContent.length).toBeGreaterThan(0);
+  });
 });

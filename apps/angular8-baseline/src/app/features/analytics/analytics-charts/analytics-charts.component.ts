@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+  standalone: false,
   selector: 'app-analytics-charts',
   templateUrl: './analytics-charts.component.html',
   styleUrls: ['./analytics-charts.component.scss']
