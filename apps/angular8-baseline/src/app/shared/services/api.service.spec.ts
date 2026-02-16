@@ -32,4 +32,15 @@ describe('ApiService', () => {
     expect(req.request.method).toBe('GET');
     req.flush(mockData);
   });
+
+  it('should propagate HTTP 500 error to subscriber (edge test – hop v9→v10)', () => {
+    let errorResponse: any;
+    service.get('fail-endpoint').subscribe(
+      () => fail('expected an error, not data'),
+      (error: any) => { errorResponse = error; }
+    );
+    const req = httpMock.expectOne('/api/fail-endpoint');
+    req.flush('Internal Server Error', { status: 500, statusText: 'Server Error' });
+    expect(errorResponse.status).toBe(500);
+  });
 });
