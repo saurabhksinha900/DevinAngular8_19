@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ThemeService, Theme } from './shared/services/theme.service';
 
 @Component({
   standalone: false,
@@ -8,4 +9,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular8-baseline';
+
+  constructor(private themeService: ThemeService) {}
+
+  get isDark(): boolean {
+    return this.themeService.currentTheme === 'dark';
+  }
+
+  toggleTheme(): void {
+    this.themeService.toggleTheme();
+  }
 }
