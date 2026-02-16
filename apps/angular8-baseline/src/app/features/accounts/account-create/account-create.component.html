@@ -1,1 +1,18 @@
-<p>account-create works!</p>
+<div class="account-create">
+  <h2>Create New Account</h2>
+  <p>Register a new customer or business account.</p>
+  <form class="form-container">
+    <div class="form-group"><label>Company Name</label><input type="text" class="form-control" placeholder="Enter company name" value="NewTech Innovations"></div>
+    <div class="form-group"><label>Account Type</label><select class="form-control"><option>Enterprise</option><option>SMB</option><option>Startup</option><option>Non-Profit</option><option>Government</option></select></div>
+    <div class="form-group"><label>Industry</label><select class="form-control"><option>Technology</option><option>Finance</option><option>Healthcare</option><option>Retail</option><option>Manufacturing</option><option>Education</option></select></div>
+    <div class="form-group"><label>Contact Email</label><input type="email" class="form-control" placeholder="Primary contact email" value="contact@newtech.io"></div>
+    <div class="form-group"><label>Phone</label><input type="tel" class="form-control" placeholder="Company phone" value="+1 (555) 234-5678"></div>
+    <div class="form-group"><label>Address</label><textarea class="form-control" rows="2">123 Innovation Blvd, Suite 400, Austin, TX 78701</textarea></div>
+    <div class="form-group"><label>Account Owner</label><select class="form-control"><option>Alice Johnson</option><option>Bob Smith</option><option>Carol Williams</option><option>David Lee</option></select></div>
+    <div class="form-group"><label>Initial Balance</label><input type="number" class="form-control" value="50000"></div>
+    <div class="form-actions">
+      <button class="btn btn-primary">Create Account</button>
+      <button class="btn btn-secondary">Cancel</button>
+    </div>
+  </form>
+</div>

@@ -1,1 +1,23 @@
-<p>report-create works!</p>
+<div class="report-create">
+  <h2>Create New Report</h2>
+  <p>Configure and generate a new report.</p>
+  <form class="form-container">
+    <div class="form-group"><label>Report Title</label><input type="text" class="form-control" placeholder="Enter report title" value="Q3 Revenue Forecast"></div>
+    <div class="form-group"><label>Report Type</label><select class="form-control"><option>Financial</option><option>Analytics</option><option>Compliance</option><option>Operations</option><option>Sales</option><option>HR</option></select></div>
+    <div class="form-group"><label>Date Range - Start</label><input type="date" class="form-control" value="2025-07-01"></div>
+    <div class="form-group"><label>Date Range - End</label><input type="date" class="form-control" value="2025-09-30"></div>
+    <div class="form-group"><label>Description</label><textarea class="form-control" rows="3" placeholder="Report description">Quarterly revenue forecast with projections for Q3 2025 including regional breakdowns and growth targets.</textarea></div>
+    <div class="form-group"><label>Include Sections</label>
+      <div><label><input type="checkbox" checked> Executive Summary</label></div>
+      <div><label><input type="checkbox" checked> Revenue Breakdown</label></div>
+      <div><label><input type="checkbox" checked> Regional Analysis</label></div>
+      <div><label><input type="checkbox"> Customer Segmentation</label></div>
+      <div><label><input type="checkbox" checked> Forecast & Projections</label></div>
+    </div>
+    <div class="form-actions">
+      <button class="btn btn-primary">Generate Report</button>
+      <button class="btn btn-secondary">Save as Draft</button>
+      <button class="btn btn-secondary">Cancel</button>
+    </div>
+  </form>
+</div>

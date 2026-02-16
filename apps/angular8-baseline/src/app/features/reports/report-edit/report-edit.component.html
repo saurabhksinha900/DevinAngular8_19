@@ -1,1 +1,17 @@
-<p>report-edit works!</p>
+<div class="report-edit">
+  <h2>Edit Report - RPT-001</h2>
+  <p>Modify report configuration and regenerate.</p>
+  <form class="form-container">
+    <div class="form-group"><label>Report Title</label><input type="text" class="form-control" value="Q2 Revenue Analysis"></div>
+    <div class="form-group"><label>Report Type</label><select class="form-control"><option selected>Financial</option><option>Analytics</option><option>Compliance</option><option>Operations</option></select></div>
+    <div class="form-group"><label>Date Range - Start</label><input type="date" class="form-control" value="2025-04-01"></div>
+    <div class="form-group"><label>Date Range - End</label><input type="date" class="form-control" value="2025-06-30"></div>
+    <div class="form-group"><label>Description</label><textarea class="form-control" rows="3">Q2 2025 revenue analysis covering all business units with regional breakdown and YoY comparison.</textarea></div>
+    <div class="form-group"><label>Status</label><select class="form-control"><option selected>Published</option><option>Under Review</option><option>Draft</option></select></div>
+    <div class="form-actions">
+      <button class="btn btn-primary">Save Changes</button>
+      <button class="btn btn-secondary">Regenerate</button>
+      <button class="btn btn-secondary">Cancel</button>
+    </div>
+  </form>
+</div>

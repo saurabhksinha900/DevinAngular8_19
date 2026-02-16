@@ -1,1 +1,29 @@
-<p>analytics-export works!</p>
+<div class="analytics-export">
+  <h2>Export Analytics Data</h2>
+  <p>Download analytics data in your preferred format.</p>
+  <form class="form-container">
+    <div class="form-group"><label>Export Format</label><select class="form-control"><option>CSV</option><option selected>Excel (.xlsx)</option><option>PDF Report</option><option>JSON</option></select></div>
+    <div class="form-group"><label>Date Range</label><select class="form-control"><option>Last 7 Days</option><option selected>Last 30 Days</option><option>Last 90 Days</option><option>Year to Date</option></select></div>
+    <div class="form-group"><label>Include Data</label>
+      <div><label><input type="checkbox" checked> Page Views &amp; Traffic</label></div>
+      <div><label><input type="checkbox" checked> User Engagement</label></div>
+      <div><label><input type="checkbox" checked> Revenue Metrics</label></div>
+      <div><label><input type="checkbox"> Raw Event Logs</label></div>
+      <div><label><input type="checkbox" checked> Summary Statistics</label></div>
+    </div>
+    <div class="form-actions">
+      <button class="btn btn-primary">Export Now</button>
+      <button class="btn btn-secondary">Schedule Export</button>
+    </div>
+  </form>
+  <h3>Recent Exports</h3>
+  <table class="data-table">
+    <thead><tr><th>Date</th><th>Format</th><th>Size</th><th>Exported By</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>Jun 15, 2025</td><td>Excel</td><td>4.2 MB</td><td>Alice Johnson</td><td><span class="badge badge-success">Complete</span></td></tr>
+      <tr><td>Jun 10, 2025</td><td>CSV</td><td>1.8 MB</td><td>Bob Smith</td><td><span class="badge badge-success">Complete</span></td></tr>
+      <tr><td>Jun 05, 2025</td><td>PDF</td><td>8.5 MB</td><td>Carol Williams</td><td><span class="badge badge-success">Complete</span></td></tr>
+      <tr><td>Jun 01, 2025</td><td>JSON</td><td>12.1 MB</td><td>David Lee</td><td><span class="badge badge-success">Complete</span></td></tr>
+    </tbody>
+  </table>
+</div>

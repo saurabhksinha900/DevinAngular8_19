@@ -1,1 +1,24 @@
-<p>billing-create works!</p>
+<div class="billing-create">
+  <h2>Create New Invoice</h2>
+  <p>Generate a new invoice for a customer account.</p>
+  <form class="form-container">
+    <div class="form-group"><label>Customer Account</label><select class="form-control"><option>ACC-1001 - Acme Corporation</option><option>ACC-1002 - TechStart Inc.</option><option>ACC-1003 - Global Finance Ltd.</option><option>ACC-1004 - Green Energy Co.</option></select></div>
+    <div class="form-group"><label>Invoice Date</label><input type="date" class="form-control" value="2025-06-16"></div>
+    <div class="form-group"><label>Due Date</label><input type="date" class="form-control" value="2025-07-16"></div>
+    <div class="form-group"><label>Payment Terms</label><select class="form-control"><option>Net 30</option><option>Net 15</option><option>Net 60</option><option>Due on Receipt</option></select></div>
+    <h3>Line Items</h3>
+    <table class="data-table">
+      <thead><tr><th>Description</th><th>Qty</th><th>Unit Price</th><th>Total</th></tr></thead>
+      <tbody>
+        <tr><td><input type="text" class="form-control" value="Monthly Service Fee"></td><td><input type="number" class="form-control" value="1" style="width:60px"></td><td><input type="number" class="form-control" value="4200" style="width:100px"></td><td>$4,200.00</td></tr>
+        <tr><td><input type="text" class="form-control" value="API Overage Charges"></td><td><input type="number" class="form-control" value="1" style="width:60px"></td><td><input type="number" class="form-control" value="850" style="width:100px"></td><td>$850.00</td></tr>
+      </tbody>
+    </table>
+    <div class="form-group"><label>Notes</label><textarea class="form-control" rows="2">Thank you for your continued partnership.</textarea></div>
+    <div class="form-actions">
+      <button class="btn btn-primary">Create Invoice</button>
+      <button class="btn btn-secondary">Save as Draft</button>
+      <button class="btn btn-secondary">Cancel</button>
+    </div>
+  </form>
+</div>

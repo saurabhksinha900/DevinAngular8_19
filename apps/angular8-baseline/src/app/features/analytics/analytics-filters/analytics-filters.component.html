@@ -1,1 +1,21 @@
-<p>analytics-filters works!</p>
+<div class="analytics-filters">
+  <h2>Analytics Filters</h2>
+  <p>Configure data filters to refine your analytics view.</p>
+  <form class="form-container">
+    <div class="form-group"><label>Date Range</label><select class="form-control"><option>Last 7 Days</option><option selected>Last 30 Days</option><option>Last 90 Days</option><option>Year to Date</option><option>Custom Range</option></select></div>
+    <div class="form-group"><label>Module</label><select class="form-control"><option selected>All Modules</option><option>Dashboard</option><option>Users</option><option>Reports</option><option>Accounts</option><option>Billing</option><option>Analytics</option></select></div>
+    <div class="form-group"><label>User Segment</label><select class="form-control"><option selected>All Users</option><option>Enterprise</option><option>SMB</option><option>Startup</option><option>Free Tier</option></select></div>
+    <div class="form-group"><label>Region</label><select class="form-control"><option selected>All Regions</option><option>North America</option><option>Europe</option><option>Asia Pacific</option><option>Latin America</option></select></div>
+    <div class="form-group"><label>Metric Type</label>
+      <div><label><input type="checkbox" checked> Page Views</label></div>
+      <div><label><input type="checkbox" checked> Unique Visitors</label></div>
+      <div><label><input type="checkbox" checked> Session Duration</label></div>
+      <div><label><input type="checkbox"> Conversion Rate</label></div>
+      <div><label><input type="checkbox"> Revenue Impact</label></div>
+    </div>
+    <div class="form-actions">
+      <button class="btn btn-primary">Apply Filters</button>
+      <button class="btn btn-secondary">Reset</button>
+    </div>
+  </form>
+</div>
