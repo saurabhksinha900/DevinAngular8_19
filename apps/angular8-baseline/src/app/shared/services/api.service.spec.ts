@@ -65,4 +65,15 @@ describe('ApiService', () => {
     req.flush('Too Many Requests', { status: 429, statusText: 'Too Many Requests' });
     expect(errorResponse.status).toBe(429);
   });
+
+  it('should handle HTTP 403 forbidden response (edge test – hop v17→v18)', () => {
+    let errorResponse: any;
+    service.get('forbidden-resource').subscribe(
+      () => fail('expected a 403 error, not data'),
+      (error: any) => { errorResponse = error; }
+    );
+    const req = httpMock.expectOne('/api/forbidden-resource');
+    req.flush('Forbidden', { status: 403, statusText: 'Forbidden' });
+    expect(errorResponse.status).toBe(403);
+  });
 });
