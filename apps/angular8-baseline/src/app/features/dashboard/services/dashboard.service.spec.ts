@@ -43,4 +43,12 @@ describe('DashboardService', () => {
       done();
     });
   });
+
+  it('should return stats where revenue is a finite number (edge test – hop v16→v17)', (done) => {
+    service.getStats().subscribe((stats: DashboardStats) => {
+      expect(Number.isFinite(stats.revenue)).toBe(true);
+      expect(stats.revenue).not.toBeNaN();
+      done();
+    });
+  });
 });
