@@ -1,3 +1,74 @@
+:root,
+[data-theme="light"] {
+  --bg-primary: #f5f5f5;
+  --bg-surface: #ffffff;
+  --bg-surface-hover: #fafafa;
+  --bg-header: #1976d2;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --text-header: #ffffff;
+  --text-link: #1976d2;
+  --text-link-hover: #1565c0;
+  --border-color: #e0e0e0;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --badge-success-bg: #e8f5e9;
+  --badge-success-text: #2e7d32;
+  --badge-warning-bg: #fff3e0;
+  --badge-warning-text: #e65100;
+  --badge-info-bg: #e3f2fd;
+  --badge-info-text: #1565c0;
+  --badge-danger-bg: #fbe9e7;
+  --badge-danger-text: #c62828;
+  --stat-value: #1976d2;
+  --btn-primary-bg: #1976d2;
+  --btn-primary-hover: #1565c0;
+  --btn-secondary-bg: #e0e0e0;
+  --btn-secondary-text: #333333;
+  --btn-secondary-hover: #bdbdbd;
+  --input-bg: #ffffff;
+  --input-border: #cccccc;
+  --input-focus-border: #1976d2;
+  --input-focus-shadow: rgba(25, 118, 210, 0.2);
+  --table-header-bg: #f5f5f5;
+  --positive: #2e7d32;
+  --negative: #c62828;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #121212;
+  --bg-surface: #1e1e1e;
+  --bg-surface-hover: #2a2a2a;
+  --bg-header: #1a1a2e;
+  --text-primary: #e0e0e0;
+  --text-secondary: #a0a0a0;
+  --text-header: #e0e0e0;
+  --text-link: #64b5f6;
+  --text-link-hover: #90caf9;
+  --border-color: #333333;
+  --shadow: rgba(0, 0, 0, 0.4);
+  --badge-success-bg: #1b3a1b;
+  --badge-success-text: #66bb6a;
+  --badge-warning-bg: #3e2a0a;
+  --badge-warning-text: #ffa726;
+  --badge-info-bg: #0d2137;
+  --badge-info-text: #64b5f6;
+  --badge-danger-bg: #3b1515;
+  --badge-danger-text: #ef5350;
+  --stat-value: #64b5f6;
+  --btn-primary-bg: #1565c0;
+  --btn-primary-hover: #1976d2;
+  --btn-secondary-bg: #333333;
+  --btn-secondary-text: #e0e0e0;
+  --btn-secondary-hover: #444444;
+  --input-bg: #2a2a2a;
+  --input-border: #444444;
+  --input-focus-border: #64b5f6;
+  --input-focus-shadow: rgba(100, 181, 246, 0.2);
+  --table-header-bg: #252525;
+  --positive: #66bb6a;
+  --negative: #ef5350;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -8,15 +79,16 @@ html, body {
   height: 100%;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   font-size: 14px;
-  color: #333;
-  background-color: #f5f5f5;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  transition: color 0.3s, background-color 0.3s;
 }
 
 a {
-  color: #1976d2;
+  color: var(--text-link);
   text-decoration: none;
   &:hover {
-    color: #1565c0;
+    color: var(--text-link-hover);
   }
 }
 
@@ -29,3 +101,83 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 auto;
   padding: 0 1rem;
 }
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  background: var(--bg-surface);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px var(--shadow);
+  th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border-color); }
+  th { background: var(--table-header-bg); font-weight: 600; font-size: 12px; text-transform: uppercase; color: var(--text-secondary); }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: var(--bg-surface-hover); }
+}
+
+.badge {
+  display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 12px; font-weight: 500;
+  &.badge-success { background: var(--badge-success-bg); color: var(--badge-success-text); }
+  &.badge-warning { background: var(--badge-warning-bg); color: var(--badge-warning-text); }
+  &.badge-info { background: var(--badge-info-bg); color: var(--badge-info-text); }
+  &.badge-danger { background: var(--badge-danger-bg); color: var(--badge-danger-text); }
+}
+
+.stats-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 16px 0;
+}
+
+.stat-card {
+  background: var(--bg-surface); border-radius: 8px; padding: 20px; box-shadow: 0 1px 3px var(--shadow);
+  h3 { font-size: 13px; color: var(--text-secondary); margin-bottom: 8px; }
+  .stat-value { display: block; font-size: 28px; font-weight: 700; color: var(--stat-value); }
+  .stat-change { display: block; font-size: 12px; margin-top: 4px;
+    &.positive { color: var(--positive); }
+    &.negative { color: var(--negative); }
+  }
+}
+
+.widget-card {
+  background: var(--bg-surface); border-radius: 8px; padding: 20px; box-shadow: 0 1px 3px var(--shadow);
+  h3 { font-size: 15px; margin-bottom: 12px; }
+  .metric-row { display: flex; justify-content: space-between; margin-bottom: 4px; font-size: 13px; }
+  .metric-value { font-weight: 600; }
+}
+
+.widgets-grid, .charts-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin: 16px 0;
+}
+
+.detail-card {
+  background: var(--bg-surface); border-radius: 8px; padding: 20px; box-shadow: 0 1px 3px var(--shadow); margin: 16px 0;
+  .detail-row { display: flex; padding: 8px 0; border-bottom: 1px solid var(--border-color);
+    &:last-child { border-bottom: none; }
+  }
+  .detail-label { width: 180px; font-weight: 600; color: var(--text-secondary); flex-shrink: 0; }
+  .detail-value { flex: 1; }
+}
+
+.form-container {
+  background: var(--bg-surface); border-radius: 8px; padding: 24px; box-shadow: 0 1px 3px var(--shadow); margin: 16px 0;
+  .form-group { margin-bottom: 16px;
+    label { display: block; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary); }
+  }
+  .form-control {
+    width: 100%; padding: 8px 12px; border: 1px solid var(--input-border); border-radius: 4px; font-size: 14px;
+    background: var(--input-bg); color: var(--text-primary);
+    &:focus { border-color: var(--input-focus-border); outline: none; box-shadow: 0 0 0 2px var(--input-focus-shadow); }
+  }
+  select.form-control { background: var(--input-bg); }
+  textarea.form-control { resize: vertical; }
+  .form-actions { margin-top: 20px; display: flex; gap: 10px; }
+}
+
+.btn {
+  padding: 8px 20px; border: none; border-radius: 4px; font-size: 14px; cursor: pointer; font-weight: 500;
+  &.btn-primary { background: var(--btn-primary-bg); color: #fff; &:hover { background: var(--btn-primary-hover); } }
+  &.btn-secondary { background: var(--btn-secondary-bg); color: var(--btn-secondary-text); &:hover { background: var(--btn-secondary-hover); } }
+}
+
+.positive { color: var(--positive); }
+.negative { color: var(--negative); }

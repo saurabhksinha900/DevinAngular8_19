@@ -3,12 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-  { path: 'dashboard', loadChildren: './features/dashboard/dashboard.module#DashboardModule' },
-  { path: 'users', loadChildren: './features/users/users.module#UsersModule' },
-  { path: 'reports', loadChildren: './features/reports/reports.module#ReportsModule' },
-  { path: 'accounts', loadChildren: './features/accounts/accounts.module#AccountsModule' },
-  { path: 'billing', loadChildren: './features/billing/billing.module#BillingModule' },
-  { path: 'analytics', loadChildren: './features/analytics/analytics.module#AnalyticsModule' },
+  { path: 'dashboard', loadChildren: () => import('./features/dashboard/dashboard.module').then(m => m.DashboardModule) },
+  { path: 'users', loadChildren: () => import('./features/users/users.module').then(m => m.UsersModule) },
+  { path: 'reports', loadChildren: () => import('./features/reports/reports.module').then(m => m.ReportsModule) },
+  { path: 'accounts', loadChildren: () => import('./features/accounts/accounts.module').then(m => m.AccountsModule) },
+  { path: 'billing', loadChildren: () => import('./features/billing/billing.module').then(m => m.BillingModule) },
+  { path: 'analytics', loadChildren: () => import('./features/analytics/analytics.module').then(m => m.AnalyticsModule) },
   { path: '**', redirectTo: 'dashboard' }
 ];
 

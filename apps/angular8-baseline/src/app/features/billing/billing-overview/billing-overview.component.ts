@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+  standalone: false,
   selector: 'app-billing-overview',
   templateUrl: './billing-overview.component.html',
   styleUrls: ['./billing-overview.component.scss']

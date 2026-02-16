@@ -22,7 +22,7 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -43,7 +43,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -64,23 +63,23 @@
             }
           }
         },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "angular8-baseline:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "angular8-baseline:build:production"
-            }
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "angular8-baseline:build"
-          }
-        },
+                "serve": {
+                  "builder": "@angular-devkit/build-angular:dev-server",
+                  "options": {
+                    "buildTarget": "angular8-baseline:build"
+                  },
+                  "configurations": {
+                    "production": {
+                      "buildTarget": "angular8-baseline:build:production"
+                    }
+                  }
+                },
+                "extract-i18n": {
+                  "builder": "@angular-devkit/build-angular:extract-i18n",
+                  "options": {
+                    "buildTarget": "angular8-baseline:build"
+                  }
+                },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
@@ -95,7 +94,10 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "include": [
+              "src/**/*.spec.ts"
+            ]
           }
         },
         "lint": {
@@ -124,6 +126,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular8-baseline"
+    }
+  },
+  "defaultProject": "angular8-baseline",
+  "cli": {
+    "analytics": false
+  }
 }
