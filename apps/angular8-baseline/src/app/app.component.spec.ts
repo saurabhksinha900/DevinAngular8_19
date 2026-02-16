@@ -48,4 +48,11 @@ describe('AppComponent', () => {
     tick();
     expect(location.path()).toBe('/dashboard');
   }));
+
+  it('should have a non-empty title that is a string (edge test – hop v11→v12)', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(typeof app.title).toBe('string');
+    expect(app.title.length).toBeGreaterThan(0);
+  });
 });
