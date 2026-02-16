@@ -43,7 +43,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -124,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular8-baseline"
+    }
+  },
+  "defaultProject": "angular8-baseline",
+  "cli": {
+    "analytics": false
+  }
 }
