@@ -23,4 +23,14 @@ describe('DashboardService', () => {
       done();
     });
   });
+
+  it('should return stats where all numeric fields are non-negative (edge test – hop v10→v11)', (done) => {
+    service.getStats().subscribe((stats: DashboardStats) => {
+      expect(stats.users).toBeGreaterThanOrEqual(0);
+      expect(stats.reports).toBeGreaterThanOrEqual(0);
+      expect(stats.accounts).toBeGreaterThanOrEqual(0);
+      expect(stats.revenue).toBeGreaterThanOrEqual(0);
+      done();
+    });
+  });
 });
