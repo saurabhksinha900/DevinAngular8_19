@@ -55,4 +55,12 @@ describe('AppComponent', () => {
     expect(typeof app.title).toBe('string');
     expect(app.title.length).toBeGreaterThan(0);
   });
+
+  it('should render navigation links in the app nav (edge test – hop v15→v16)', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    const navLinks = compiled.querySelectorAll('.app-nav a');
+    expect(navLinks.length).toBeGreaterThan(0);
+  });
 });
